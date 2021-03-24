@@ -46,7 +46,7 @@ Este projeto tem como finalizade facilitar e agilizar o chamado de suporte ou li
 
 <br>
 <p align="center">
-<img  src = "prints/login.png" width="350px">
+<img  src = "prints/Login.png" width="350px">
 </p>
 <br>
 
