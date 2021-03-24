@@ -137,7 +137,7 @@ A letra **g** no inicio da numeração deve ser ignorada. Para super grupos, o l
 
 <br>
 <p align="center">
-<img  src="prints/CHAT_ID_2.png" width="350px" />
+<img  src="prints/chat_id_2.png" width="350px" />
 </p>
 <br>
 
