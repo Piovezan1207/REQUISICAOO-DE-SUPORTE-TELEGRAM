@@ -1,0 +1,33 @@
+{% extends "template.html" %}
+{% block template %}
+    <Titulos>
+
+            <h1 class="mt-3"> SALA 
+                    <select class="lista" id="salas">
+                                {% for linhas in permitidas %}  <option name={{ linhas }}>{{ linhas }}</option> {% endfor %} 
+                    </select>     
+            </h1> 
+            <h2>PRESSIONE O BOTÃO REFERENTE AO SERVIÇO DESEJADO.</h2>
+    </Titulos>
+
+    <p>
+            <br> 
+            <button class="myButton" onclick="func_suporte();">CHAMAR SUPORTE TÉCNICO</button> 
+            <br> <br> <br> 
+            <button class="myButton" onclick="func_limpeza();">CHAMAR LIMPEZA</button> 
+    </p>    
+
+
+    <script type="text/javascript">
+            function func_suporte(){
+                    var select = document.getElementById("salas")
+                    var value = select.options[select.selectedIndex].value;
+                    window.location.href = "/Requisitar?tipo=suporte&sala=" + value;
+            }
+            function func_limpeza(){	
+                    var select = document.getElementById("salas")
+                    var value = select.options[select.selectedIndex].value;
+                    window.location.href = "/Requisitar?tipo=limpeza&sala=" + value;
+            }
+    </script>
+{% endblock %}

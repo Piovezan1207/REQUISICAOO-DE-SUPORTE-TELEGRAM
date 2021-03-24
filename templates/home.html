@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+{% block template %}
+    <Titulos>
+            <h1 class="mt-3"> Sala {{sala_}} </h1> 
+            <h2>Pressione o botão referente ao serviço desejado.</h2>
+    </Titulos>
+
+    <p>
+            <a href={{suporte}}> <br> <button class="myButton">Chamar suporte técnico</button> </a>
+            <a href={{limpeza}}> <br><br> <button class="myButton">Chamar limpeza</button> </a>     
+    </p>  
+    
+    <footer class="rodape">  Vinicius Piovezan © 2021 </footer>  
+{% endblock %}

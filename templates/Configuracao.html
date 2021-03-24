@@ -1,0 +1,68 @@
+{% extends "template.html" %}
+{% block template %}
+    <Titulos>
+            <h1 class="mt-3">Lista de salas permitidas. </h1>
+    </Titulos>
+
+    <p>
+            {% for linhas in salas %} <td>{{ linhas }}</td> {% endfor %}
+            
+
+            <form action="{{url_for('adicionar')}}">
+                    <label for="fname">Digite a nova sala a ser adicionada:</label>
+                    <input type="text" name="sala">
+                    <input type="submit" value="Submit">
+            </form> <br><br>
+
+            
+            <form action="{{url_for('remover')}}">
+                    <label for="fname">Digite a nova sala a ser removida:</label>
+                    <input type="text" name="sala">
+                    <input type="submit" value="Submit">
+            </form> <br><br>
+            
+            ID dos grupos em que o bot vai mandar mensagem: <br><br>
+            Grupo de suporte: {{ID[0]}}  
+            <form action="{{url_for('mudar_ID_sup')}}">   
+                    <label for="fname">Digite o novo ID:</label>
+                    <input type="text" name="id">
+                    <input type="submit" value="Submit">
+            </form>  
+
+            <br>
+            Grupo da limpeza: {{ID[1]}} <br>
+            <form action="{{url_for('mudar_ID_limp')}}">
+                    <label for="fname">Digite o novo ID:</label>
+                    <input type="text" name="id">
+                    <input type="submit" value="Submit">
+            </form>  
+            
+            <br> Gerador de QR code, escolha a sala e clique em gerar: <br>
+
+            <br>
+            URL da aplicação para gerar o QR: {{link[0]}} <br>
+            <form action="{{url_for('mudar_link')}}">
+                    <label for="fname">Digite o novo link:</label>
+                    <input type="text" name="link">
+                    <input type="submit" value="Submit">
+            </form> 
+            <br>
+            <select class="lista_2" id="salas">
+                    {% for linhas in permitidas %}  <option name={{ linhas }}>{{ linhas }}</option> {% endfor %} 
+            </select>   
+            <button class="myButton_2" onclick="QR();">GERAR</button>   
+            
+    </p> <br>
+
+    <a href="{{url_for('logout')}}"> <button class="myButton1">LOGOUT</button> </a> 
+    <br><br><br>
+
+    <script type="text/javascript">
+            function QR(){
+                    var select = document.getElementById("salas")
+                    var value = select.options[select.selectedIndex].value;
+                    window.open("/gerar_QR?sala=" + value);
+            }
+
+    </script>
+{% endblock %}
